@@ -20,16 +20,14 @@ services:
     build: 
       context: nginx
     container_name: nginx
-    entrypoint: ["./entrypoint.sh"]
     restart: always
     tty: true
     ports:  
-      - "8080:80"
+      - "8085:80"
     networks: 
       - node-network 
     depends_on: 
       - app
-      - db
 
   db:
     image: mysql:5.7
@@ -50,7 +48,4 @@ services:
 networks: 
   node-network:
     driver: bridge
-
-
-    
     
