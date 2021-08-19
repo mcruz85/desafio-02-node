@@ -12,9 +12,22 @@ services:
       - ./node:/usr/src/app  
     tty: true
     ports: 
-      - "8085:3000"  
+      - "3000:3000"  
     depends_on: 
       - db  
+  nginx:
+    build: 
+      context: nginx
+    container_name: nginx
+    restart: always
+    tty: true
+    ports:  
+      - "8080:80"
+    networks: 
+      - node-network 
+    depends_on: 
+      - app    
+
   db:
     image: mysql:5.7
     command: --innodb-use-native-aio=0
