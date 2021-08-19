@@ -30,7 +30,7 @@ connection.end()
 
 app.get('/', (req, res)=> {
 
-    res.send(`<h1>Full Cycle</h1><ul>${peolpe}<ul>`)
+    res.send(`<h1>Full Cycle Rocks!</h1><ul>${peolpe}<ul>`)
 })
 
 app.listen(port, () => {
